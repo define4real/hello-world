@@ -1,2 +1,3 @@
 # hello-world
-write hello world for gi beginner 
+write hello world for git beginner 
+don't add any unused text in this text.
