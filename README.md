@@ -10,3 +10,8 @@ libcurl c++ http post  file
 https://stackoverflow.com/questions/2657318/how-can-i-curl-post-a-file-using-file-pointer-in-c
 https://curl.haxx.se/libcurl/c/example.html
 https://cboard.cprogramming.com/networking-device-communication/76842-file-upload-libcurl.html
+
+
+
+curllib write file
+https://blog.csdn.net/mtour/article/details/40304925?utm_source=blogxgwz9
