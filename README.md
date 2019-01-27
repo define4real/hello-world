@@ -41,6 +41,8 @@ pause
 
 
 --------------minizip example-----------
+
+
 #include "mz.h"
 #include "mz_os.h"
 #include "mz_strm.h"
@@ -59,6 +61,22 @@ pause
 	#pragma comment(lib, "libminizipd_x84.lib")
 	#pragma comment(lib, "zlibstaticd_x86.lib")
 #endif // _WIN64 
+
+typedef struct minizip_opt_s {
+	uint8_t     include_path;
+	int16_t     compress_level;
+	uint8_t     compress_method;
+	uint8_t     overwrite;
+	uint8_t     append;
+	int64_t     disk_size;
+	uint8_t     zip_cd;
+	int32_t     encoding;
+	uint8_t     verbose;
+	uint8_t     aes;
+	const char *cert_path;
+	const char *cert_pwd;
+} minizip_opt;
+int32_t minizip_add(const char *path, const char *password, minizip_opt *options, int32_t arg_count, const char **args)
 void test()
 {
 	minizip_opt options;
