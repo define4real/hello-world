@@ -1,0 +1,2 @@
+cmd 管理员启动，否则会报错
+regsvr32 IAccessible2Proxy32bit.dll
