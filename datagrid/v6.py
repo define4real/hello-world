@@ -580,4 +580,6 @@ if __name__ == '__main__':
     # xhead_x = 100
     # xhead_text = "haha"
     # print("head_x=%d,head_text=%s" % (xhead_x, xhead_text))
-    run_test()
+    #run_test()
+    win = auto.ControlFromHandle(0x000208AA)
+    auto.LogControl(win)
