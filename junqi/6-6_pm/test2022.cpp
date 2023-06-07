@@ -233,7 +233,7 @@ static int CheckPlayStep(HWND hwnd)
     // auto ret = ReadProcessMemory(process, (LPCVOID)gPlayCountAddr, &tmp, 4, &dwNumberOfBytesRead);
     auto ret1 = ReadProcessMemory(process, (LPCVOID)gStepNum, &tmp1, 1, &dwNumberOfBytesRead);
     CloseHandle(process);
-    if ( ret1 && tmp1[0] == 0) {
+    if (ret1 && tmp1[0] == 0) {
         return 0;
     }
     return 1;
@@ -539,8 +539,8 @@ bool CheckAllStart(UserProcess** pUser)
             cout << "addr px offse=" << std::hex << (unsigned long)px + i * 4 + 0xc << std::dec << "\n";
             int index = ReadData(gUserPosAddr, pUser[i]->mProcess, 1);
             cout << "addr index=" << index << "\n";
-            int isStart = ReadData((LPVOID)((unsigned long)px + i*4 + 0xc), pUser[i]->mProcess, 1);//0x4A6A90 + 4*pos+ C
-            cout << "纠正未开始错误，重新点击开始,i=[" << i << "], isStart=" << isStart <<"\n";
+            int isStart = ReadData((LPVOID)((unsigned long)px + i * 4 + 0xc), pUser[i]->mProcess, 1);//0x4A6A90 + 4*pos+ C
+            cout << "纠正未开始错误，重新点击开始,i=[" << i << "], isStart=" << isStart << "\n";
             //PrintRect(pUser[i]->mHwnd);
             if (isStart == 0) {
                 pUser[i]->ClickStart();
@@ -558,8 +558,8 @@ bool CheckAllStart(UserProcess** pUser)
 }
 
 void ComfilmFaildThread(void* para) {
-   UserProcess** pUser = (UserProcess**)para;
-   while (true) {
+    UserProcess** pUser = (UserProcess**)para;
+    while (true) {
         //WaitForSingleObject(hEvtObj, -1);
         //HWND ret = nullptr;
         //while (ret == nullptr) {
@@ -615,7 +615,7 @@ void GetNameQq(IUIAutomationElement* find)
 
     gWalk->GetFirstChildElement(find, &text);
     if (!text) {
-        return ;
+        return;
     }
     wstring tmp;
     int start = 1;
@@ -623,7 +623,7 @@ void GetNameQq(IUIAutomationElement* find)
         gWalk->GetNextSiblingElement(text, &next);
         if (!next) {
             text->Release();
-            return ;
+            return;
         }
         start++;
         if (start == 5) {
@@ -679,12 +679,12 @@ int GetTableUserNum(HWND hwnd)
     //}
     int count = 0;
     while (true) {
-        gWalk->GetNextSiblingElement(find[count], &find[count+1]);
-        if (!find[count+1]) {
+        gWalk->GetNextSiblingElement(find[count], &find[count + 1]);
+        if (!find[count + 1]) {
             break;
         }
         CONTROLTYPEID type;
-        find[count+1]->get_CurrentControlType(&type);
+        find[count + 1]->get_CurrentControlType(&type);
         if (type != UIA_ListItemControlTypeId) {
             break;
         }
@@ -714,7 +714,7 @@ DWORD gClickFailedTime;
 int gRunStage = 0;
 void CheckAllStartThread(void* para)
 {
-    UserProcess** pUser = (UserProcess**)para;Sleep(2000);
+    UserProcess** pUser = (UserProcess**)para; Sleep(2000);
     while (true) {
         if (gStep == 0 && GetTickCount() - gClickFailedTime >= 2000)
         {
@@ -723,7 +723,7 @@ void CheckAllStartThread(void* para)
             for (int i = 0; i < USER_COUNT; i++) {
                 pUser[i]->ClickFinalOk();
                 Sleep(20);
- 
+
                 pUser[i]->ClickStart();
                 //int index = ReadData(gUserPosAddr, pUser[i]->mProcess, 1);
                 //WriteData((LPVOID)((int64_t)gGameStartAddr + 4 * index), pUser[i]->mProcess, 1, 1);
@@ -759,7 +759,7 @@ void CheckAllStartThread(void* para)
         //        }
         //    }
         //}
-        
+
 
         if (USER_COUNT == 4) {
             if (gRunStage == 1) { // 走一步
@@ -770,13 +770,14 @@ void CheckAllStartThread(void* para)
                     pUser[(gLosePos + 2) % USER_COUNT]->ClickEnd(); // 点投降 and 点确定
                     gRunStage = 2;
                 }
-            }else  if (gRunStage == 2) { // 走一步
+            }
+            else  if (gRunStage == 2) { // 走一步
                 if (GetTickCount64() - gClickFailedTime >= 1500) {
                     int timer = ReadData(gPlayTimer, pUser[(gLosePos + 1) % USER_COUNT]->mProcess, 1);
                     cout << "thread11 投降后走棋错误，重新走棋.timer=" << timer << "\n";
                     gClickFailedTime = GetTickCount64();
-                    PostMessage(pUser[(gLosePos + 1) % USER_COUNT]->mHwnd, WM_LBUTTONDOWN, 1, MAKELONG(865, 585)); // 1
-                    Sleep(10);
+                    //PostMessage(pUser[(gLosePos + 1) % USER_COUNT]->mHwnd, WM_LBUTTONDOWN, 1, MAKELONG(865, 585)); // 1
+                    //Sleep(10);
                     PostMessage(pUser[(gLosePos + 1) % USER_COUNT]->mHwnd, WM_LBUTTONUP, 0, MAKELONG(865, 585)); //跳过
                     gRunStage = 3;
                 }
@@ -786,18 +787,18 @@ void CheckAllStartThread(void* para)
                     int timer = ReadData(gPlayTimer, pUser[gLosePos]->mProcess, 1);
                     cout << "thread22 未投降错误，重新点击投降.timer=" << timer << "\n";
                     gClickFailedTime = GetTickCount64();
-                    
+
                     pUser[gLosePos]->ClickEnd(); // 点投降 and 点确定
                     gRunStage = 4;
                 }
             }
             else  if (gRunStage == 4) { // 第2家投降
                 if (GetTickCount64() - gClickFailedTime >= 1500) { //  投降又没有点到.
-                    int score2 , score1;
-                     score2 = score1 = ReadData(gGameScore, pUser[(gLosePos + 1) % USER_COUNT]->mProcess, 1);
+                    int score2, score1;
+                    score2 = score1 = ReadData(gGameScore, pUser[(gLosePos + 1) % USER_COUNT]->mProcess, 1);
                     while (true) {
                         gStep = ReadData(gStepNum, pUser[gLosePos]->mProcess, 1);
-                        score2 =  ReadData(gGameScore, pUser[(gLosePos + 1) % USER_COUNT]->mProcess, 1);
+                        score2 = ReadData(gGameScore, pUser[(gLosePos + 1) % USER_COUNT]->mProcess, 1);
                         if (score2 != score1 || gStep >= 57) {
                             gRunStage = 0;
                             cout << "gRunStage == 4\n";
@@ -805,12 +806,12 @@ void CheckAllStartThread(void* para)
                         }
                         for (int i = 0; i < USER_COUNT; i++) {
                             gStep = ReadData(gStepNum, pUser[gLosePos]->mProcess, 1);
-                            PostMessage(pUser[i]->mHwnd, WM_LBUTTONDOWN, 1, MAKELONG(865, 585)); // 1
-                            Sleep(10);
+                            //PostMessage(pUser[i]->mHwnd, WM_LBUTTONDOWN, 1, MAKELONG(865, 585)); // 1
+                            //Sleep(10);
                             PostMessage(pUser[i]->mHwnd, WM_LBUTTONUP, 0, MAKELONG(865, 585)); //跳过
                             Sleep(50);
                             score2 = ReadData(gGameScore, pUser[(gLosePos + 1) % USER_COUNT]->mProcess, 1);
-                            if (score2 != score1 || gStep >= 40) {
+                            if (score2 != score1 || gStep >= 57) {
                                 gRunStage = 0;
                                 cout << "gRunStage == 4\n";
                                 break;
@@ -818,7 +819,7 @@ void CheckAllStartThread(void* para)
                         }
                         Sleep(50);
                     }
-                    
+
                 }
             }
         }
@@ -847,12 +848,12 @@ void CheckAllStartThread(void* para)
                             }
                             for (int i = 0; i < USER_COUNT; i++) {
                                 gStep = ReadData(gStepNum, pUser[gLosePos]->mProcess, 1);
-                                PostMessage(pUser[i]->mHwnd, WM_LBUTTONDOWN, 1, MAKELONG(865, 585)); // 1
-                                Sleep(10);
+                                //PostMessage(pUser[i]->mHwnd, WM_LBUTTONDOWN, 1, MAKELONG(865, 585)); // 1
+                                //Sleep(10);
                                 PostMessage(pUser[i]->mHwnd, WM_LBUTTONUP, 0, MAKELONG(865, 585)); //跳过
                                 Sleep(50);
                                 score2 = ReadData(gGameScore, pUser[gLosePos]->mProcess, 1);
-                                if (score2 != score1 || gStep >= 57) {
+                                if (score2 != score1 || gStep >= 40) {
                                     gRunStage = 0;
                                     cout << "gRunStage == 4\n";
                                     break;
@@ -891,7 +892,7 @@ void InitUserValue(UserProcess** pUser)
     //gLosePos = 1; // 默认是第一桌投降
     gMaxStep = 38 + gLosePos;
     if (USER_COUNT == 2) {
-        if (abs(vi[0]-vi[1]) != 2) {
+        if (abs(vi[0] - vi[1]) != 2) {
             wstring file = GetTxtFilePath();
             RemoveTextData(file);
             cout << "座位不对，两人需要坐对家\n";
@@ -936,7 +937,7 @@ int RunJunQi()
     UserProcess* pUser[4];
     InitUserValue(pUser);
     //gRunStage = 0;
-    
+
     for (int xx = 0; xx < 800; xx++) {
         gStartTime = GetTickCount();
         gClickFailedTime = GetTickCount();
@@ -950,12 +951,12 @@ int RunJunQi()
             Sleep(50);
         }
         while (true) {
-            gStep = ReadData(gStepNum, pUser[(gStep)% USER_COUNT]->mProcess, 1);
+            gStep = ReadData(gStepNum, pUser[(gStep) % USER_COUNT]->mProcess, 1);
 
             if (gStep == gMaxStep) break;
-     
-            //for (int i = 0; i < USER_COUNT; i++)
-            auto i = (gStep) % USER_COUNT;
+
+            for (int i = 0; i < USER_COUNT; i++)
+            //auto i = (gStep) % USER_COUNT;
             {
                 int timer = ReadData(gPlayTimer, pUser[i]->mProcess, 1);
 
@@ -964,10 +965,11 @@ int RunJunQi()
                     printf("error.preStep=%d,preIndex=%d,gStep=%d,i=%d\n", preStep, preIndex, gStep, i);
                     //PostMessage(pUser[i]->mHwnd, WM_LBUTTONDOWN, 1, MAKELONG(865, 585));
                     //Sleep(10);
-                    //PostMessage(pUser[i]->mHwnd, WM_LBUTTONUP, 0, MAKELONG(865, 585)); //跳过
-                    pUser[i]->ClickPos();
+                    PostMessage(pUser[i]->mHwnd, WM_LBUTTONUP, 0, MAKELONG(865, 585)); //跳过
+                    Sleep(10);
+                    //pUser[i]->ClickPos();
                     gClickFailedTime = GetTickCount();
-      
+
                     //break;
                 }
                 //printf("timer=%d\n", timer);
@@ -977,7 +979,7 @@ int RunJunQi()
                     preIndex = i;
                     pUser[i]->ClickPos();
                     gClickFailedTime = GetTickCount();
-      
+
                     //break;
                 }
                 //PostMessage(pUser[i]->mHwnd, WM_LBUTTONUP, 0, MAKELONG(865 , 585));
@@ -998,7 +1000,7 @@ int RunJunQi()
         //        break;
         //    }
         //}
-        
+
         int score1 = -1;
         int score2 = -1;
         gRunStage = 1;
@@ -1029,7 +1031,7 @@ int RunJunQi()
                     pUser[(gLosePos + 2) % USER_COUNT]->ClickEnd();
                     break;
                 }
-                
+
                 int timer = ReadData(gPlayTimer, pUser[(gLosePos + 2) % USER_COUNT]->mProcess, 1); // 倒计时到第1 或 3桌点击投降
                 if (timer != 0) {
                     pUser[(gLosePos + 2) % USER_COUNT]->ClickEnd(); // 点投降 and 点确定
