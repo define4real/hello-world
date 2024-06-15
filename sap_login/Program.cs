@@ -22,6 +22,9 @@ namespace SAPLibTools
             //connect to server
             logon.OpenConnection("test");
 
+
+            logon.SetMultiple(2);
+
             //login
             logon.Login("Y051", "123456789001", "100", "ZH");
             return;

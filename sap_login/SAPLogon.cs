@@ -21,13 +21,27 @@ namespace SAPAutomation
         public event LoginHandler BeforeLogin;
         public event LoginHandler AfterLogin;
 
+        public int  _multiple;
+
+
         public GuiSession Session { get { return _sapGuiSession; } }
 
         public GuiConnection Connection { get { return _sapGuiConnection; } }
 
         public GuiApplication Application { get { return _sapGuiApplication; } }
 
-        public SAPLogon() { }
+        
+        public SAPLogon() { _multiple = 0; }
+
+        //public int GetMultiple()
+        //{
+        //    return _multiple;
+        //}
+
+        public void SetMultiple(int multiple)
+        {
+            _multiple = multiple;
+        }
 
         public void StartProcess(string processPath = "saplogon.exe") {
             Process.Start(processPath);
@@ -75,8 +89,24 @@ namespace SAPAutomation
                 AfterLogin(_sapGuiSession, new EventArgs());
             }
 
-            GuiRadioButton rb_Button = _sapGuiSession.FindById<GuiRadioButton>("wnd[1]/usr/radMULTI_LOGON_OPT2");
+            GuiRadioButton rb_Button = null;
 
+            //0  继续此登录并结束系统中的其他任何登录  usr/radMULTI_LOGON_OPT1
+            //1 继续此登录，但是不结束系统中其他任何登录 usr/radMULTI_LOGON_OPT2
+            //3 终止此次登录 usr/radMULTI_LOGON_OPT3
+
+
+            if (_multiple == 0)
+            {
+                rb_Button = _sapGuiSession.FindById<GuiRadioButton>("wnd[1]/usr/radMULTI_LOGON_OPT1");
+            } else if (_multiple == 1)
+            {
+                rb_Button = _sapGuiSession.FindById<GuiRadioButton>("wnd[1]/usr/radMULTI_LOGON_OPT2");
+            } else
+            {
+                rb_Button = _sapGuiSession.FindById<GuiRadioButton>("wnd[1]/usr/radMULTI_LOGON_OPT3");
+            }
+               
             if (rb_Button != null)
             {
                 rb_Button.Select();
