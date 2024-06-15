@@ -82,6 +82,7 @@ class SapLogin:
         rb_button = None
         try:
             if self.multiple_login_opt == 0:
+                # 没有多用户，弹出来的框不一样，这里可能没有按钮
                 rb_button = session.findById("wnd[1]/usr/radMULTI_LOGON_OPT1")
             elif self.multiple_login_opt == 1:
                 rb_button = session.findById("wnd[1]/usr/radMULTI_LOGON_OPT2")
