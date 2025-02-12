@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/libusb-x64-windows-static-1.0.27#2-e0c615dc-4501-45b5-9b3b-f0a80949ad25",
+  "name": "libusb:x64-windows-static@1.0.27#2 58a772bb2e1b04d456ef0af59265fdd0dce7f18cec75e3193f9c49b00f773c38",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2025-01-11-0f310537c75015100d200eb71b137f6376aad510"
+    ],
+    "created": "2025-02-12T13:50:49Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-2"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-2",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "libusb",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "1.0.27#2",
+      "downloadLocation": "git+https://github.com/Microsoft/vcpkg#ports/libusb",
+      "homepage": "https://github.com/libusb/libusb",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "a cross-platform library to access USB devices",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "libusb:x64-windows-static",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "58a772bb2e1b04d456ef0af59265fdd0dce7f18cec75e3193f9c49b00f773c38",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "LGPL-2.1-or-later",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-0",
+      "name": "libusb/libusb",
+      "downloadLocation": "git+https://github.com/libusb/libusb@v1.0.27",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "36afceae9a03c1543adb9c92fb9a9320b312282bfc8ac8db7b43983c2797c63f13ce94b8ae7aab2afa94ce68d53b6aa7a69efd8ab6b3711c072b89940d4ee734"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./C:/Users/Administrator/Desktop/vcpkg-2025.01.13/ports/libusb/portfile.cmake",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "c8055fc74fa94689e79f441a76341e8a77a83318947dbf09224defb5574fe397"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Administrator/Desktop/vcpkg-2025.01.13/ports/libusb/usage",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7169c8b91d8464b6b12b59ce8de4ccdbc08a168b674e2980d5ddde6c37b2f358"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Administrator/Desktop/vcpkg-2025.01.13/ports/libusb/vcpkg.json",
+      "SPDXID": "SPDXRef-file-2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "9126d0b1ab50b90e8f50dede7955ad23fc44ddd06ed6707761b14bb8a6a9874a"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

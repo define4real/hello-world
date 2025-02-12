@@ -1,0 +1,7 @@
+Package: uriparser
+Version: 0.9.8
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 92bdaf5de2b67859e4549bde7c191f093fe5b752a16af5208ded3bdb585fc817
+Description: Strictly RFC 3986 compliant URI parsing and handling library written in C89.

@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/uriparser-x64-windows-0.9.8-d41a28b9-50ee-43f4-8f09-e8df9d8ea8ad",
+  "name": "uriparser:x64-windows@0.9.8 92bdaf5de2b67859e4549bde7c191f093fe5b752a16af5208ded3bdb585fc817",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2025-01-11-0f310537c75015100d200eb71b137f6376aad510"
+    ],
+    "created": "2025-02-12T13:45:09Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-2"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-2",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "uriparser",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "0.9.8",
+      "downloadLocation": "git+https://github.com/Microsoft/vcpkg#ports/uriparser",
+      "homepage": "https://uriparser.github.io/",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "Strictly RFC 3986 compliant URI parsing and handling library written in C89.",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "uriparser:x64-windows",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "92bdaf5de2b67859e4549bde7c191f093fe5b752a16af5208ded3bdb585fc817",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "BSD-3-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-0",
+      "name": "uriparser/uriparser",
+      "downloadLocation": "git+https://github.com/uriparser/uriparser@uriparser-0.9.8",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "4222e6d7dcdb525514ca8f42e5a9b314e0f09102ef2e72131702b6297d7cb9f509f757b9bec64c4ef88146667a60b992ff71e3c1fea50a82e45c3a14b8992326"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./C:/Users/Administrator/Desktop/vcpkg-2025.01.13/ports/uriparser/portfile.cmake",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "e3f7dd0b8c3f5240f7b566d4943a4fac86cd897a3f5deaa393d966923f10d862"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Administrator/Desktop/vcpkg-2025.01.13/ports/uriparser/usage",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7ed66a81f955138beaea32993fd038561d7e7d1da2edc4efc8cb488fe0cbf96f"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Administrator/Desktop/vcpkg-2025.01.13/ports/uriparser/vcpkg.json",
+      "SPDXID": "SPDXRef-file-2",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "7ff9ca1a8113e30002a73fc5c7ac55dee51b891573d8ed65c44ec3cd3a427953"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

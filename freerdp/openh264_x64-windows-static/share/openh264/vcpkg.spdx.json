@@ -1,0 +1,110 @@
+{
+  "$schema": "https://raw.githubusercontent.com/spdx/spdx-spec/v2.2.1/schemas/spdx-schema.json",
+  "spdxVersion": "SPDX-2.2",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "documentNamespace": "https://spdx.org/spdxdocs/openh264-x64-windows-static-2.5.0-a9d64175-17b0-4aa5-8a49-43303d870146",
+  "name": "openh264:x64-windows-static@2.5.0 55f1a0340fb9f15b79ed0e7e52976cd19fde051b71dff9f62579c12057598a16",
+  "creationInfo": {
+    "creators": [
+      "Tool: vcpkg-2025-01-11-0f310537c75015100d200eb71b137f6376aad510"
+    ],
+    "created": "2025-02-12T13:13:36Z"
+  },
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "GENERATES",
+      "relatedSpdxElement": "SPDXRef-binary"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-0"
+    },
+    {
+      "spdxElementId": "SPDXRef-port",
+      "relationshipType": "CONTAINS",
+      "relatedSpdxElement": "SPDXRef-file-1"
+    },
+    {
+      "spdxElementId": "SPDXRef-binary",
+      "relationshipType": "GENERATED_FROM",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-0",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    },
+    {
+      "spdxElementId": "SPDXRef-file-1",
+      "relationshipType": "CONTAINED_BY",
+      "relatedSpdxElement": "SPDXRef-port"
+    }
+  ],
+  "packages": [
+    {
+      "name": "openh264",
+      "SPDXID": "SPDXRef-port",
+      "versionInfo": "2.5.0",
+      "downloadLocation": "git+https://github.com/Microsoft/vcpkg#ports/openh264",
+      "homepage": "https://www.openh264.org/",
+      "licenseConcluded": "BSD-2-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "description": "OpenH264 is a codec library which supports H.264 encoding and decoding. It is suitable for use in real time applications such as WebRTC.",
+      "comment": "This is the port (recipe) consumed by vcpkg."
+    },
+    {
+      "name": "openh264:x64-windows-static",
+      "SPDXID": "SPDXRef-binary",
+      "versionInfo": "55f1a0340fb9f15b79ed0e7e52976cd19fde051b71dff9f62579c12057598a16",
+      "downloadLocation": "NONE",
+      "licenseConcluded": "BSD-2-Clause",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "comment": "This is a binary package built by vcpkg."
+    },
+    {
+      "SPDXID": "SPDXRef-resource-0",
+      "name": "cisco/openh264",
+      "downloadLocation": "git+https://github.com/cisco/openh264@v2.5.0",
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "copyrightText": "NOASSERTION",
+      "checksums": [
+        {
+          "algorithm": "SHA512",
+          "checksumValue": "cb6d3ca8d5277325dd64dec399421c4c62bc1fd012fe1521d7195e95ce7f59527919cf698829044dca3d9b1d8288c49b49111d01c9d2896c819da806492af838"
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "fileName": "./C:/Users/Administrator/Desktop/vcpkg-2025.01.13/ports/openh264/portfile.cmake",
+      "SPDXID": "SPDXRef-file-0",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "26428fbf54ca22c3f7471327701bb019d271ea24f995a5887dee667f2df11cfe"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    },
+    {
+      "fileName": "./C:/Users/Administrator/Desktop/vcpkg-2025.01.13/ports/openh264/vcpkg.json",
+      "SPDXID": "SPDXRef-file-1",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "1e93843ac21310fd915d2bacd07a2e59c1e527e7e087218e642680af0ff22aa4"
+        }
+      ],
+      "licenseConcluded": "NOASSERTION",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}

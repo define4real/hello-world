@@ -1,0 +1,10 @@
+Package: libressl
+Version: 4.0.0
+Port-Version: 1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: befe57f50d9d4561aab1d1d67fd87f86e70c2065e9fbccf21220ed192741dc06
+Description: LibreSSL is a TLS/crypto stack.
+    It was forked from OpenSSL in 2014 by the OpenBSD project, with goals of modernizing the codebase, improving security, and applying best practice development processes.
+    LibreSSL provides much of the OpenSSL 1.1 API. Incompatibilities between the projects exist and are unavoidable since both evolve with different goals and priorities.
